@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "6a92d7d1272f07a29aae",
+  "position": {
+    "x": 944,
+    "y": 35,
+    "z": 1000,
+    "height": 136,
+    "width": 278,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "MoM Revenue Growth"
+                }
+              },
+              "queryRef": "MonthlyMetrics.MoM Revenue Growth",
+              "nativeQueryRef": "MoM Revenue Growth"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MonthlyMetrics"
+                  }
+                },
+                "Property": "MoM Revenue Growth"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f671258695b53b773e6e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "MoM Revenue Growth"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d6b5de79503fb51982b8",
+  "position": {
+    "x": 643.35958005249347,
+    "y": 204.93438320209972,
+    "z": 1000,
+    "height": 515.69553805774274,
+    "width": 636.64041994750653,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customers"
+                    }
+                  },
+                  "Property": "plan"
+                }
+              },
+              "queryRef": "Customers.plan",
+              "nativeQueryRef": "plan",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "Total Revenue USD"
+                }
+              },
+              "queryRef": "MonthlyMetrics.Total Revenue USD",
+              "nativeQueryRef": "Total Revenue USD"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3b4b61ad875ca7c12f3e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customers"
+              }
+            },
+            "Property": "plan"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d98c0e490561108c726e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "Total Revenue USD"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

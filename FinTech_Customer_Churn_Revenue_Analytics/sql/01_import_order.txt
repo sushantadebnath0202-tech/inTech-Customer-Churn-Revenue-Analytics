@@ -1,0 +1,9 @@
+RUN IN THIS ORDER in MySQL Workbench (File > Open SQL Script):
+00_schema.sql
+01b_seed_customers.sql
+01b_seed_monthly_metrics.sql
+01b_seed_support_tickets.sql
+02_business_analysis.sql
+03_quality_checks.sql
+Avoid running seed scripts twice; primary key protection is intentional.
+No import wizard or LOCAL INFILE is required.

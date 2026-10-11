@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "e9209953456ab7981397",
+  "position": {
+    "x": 641,
+    "y": 35,
+    "z": 1000,
+    "height": 136,
+    "width": 278,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "Revenue per Active User"
+                }
+              },
+              "queryRef": "MonthlyMetrics.Revenue per Active User",
+              "nativeQueryRef": "Revenue per Active User"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

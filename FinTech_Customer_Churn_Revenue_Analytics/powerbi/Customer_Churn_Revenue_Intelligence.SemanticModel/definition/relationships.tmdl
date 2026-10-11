@@ -1,0 +1,23 @@
+relationship 313ea151-69af-5132-bbce-761a330a18df
+	fromColumn: MonthlyMetrics.customer_id
+	toColumn: Customers.customer_id
+
+relationship 025b79af-94e8-578d-8419-83d3d25e401e
+	fromColumn: SupportTickets.customer_id
+	toColumn: Customers.customer_id
+
+relationship c39e5839-1165-436e-9c0c-4be05e34c30d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Customers.signup_date
+	toColumn: LocalDateTable_2c80433a-022e-4188-85df-377c96ab12f3.Date
+
+relationship dad6a29c-8ef7-4b8c-a864-6eeaec17237f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: MonthlyMetrics.month_start
+	toColumn: LocalDateTable_3f33b6f5-211f-42da-9be9-d5411cd3e602.Date
+
+relationship 9931c528-9e32-4a60-9875-fc022bbe6fbc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SupportTickets.created_date
+	toColumn: LocalDateTable_0d5cf33d-5b83-48e7-aba1-3d03c54e9d47.Date
+

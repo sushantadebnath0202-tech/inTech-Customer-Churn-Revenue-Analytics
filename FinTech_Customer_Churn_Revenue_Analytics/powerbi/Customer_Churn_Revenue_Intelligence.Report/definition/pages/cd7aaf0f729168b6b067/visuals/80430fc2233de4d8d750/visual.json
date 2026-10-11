@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "80430fc2233de4d8d750",
+  "position": {
+    "x": 0,
+    "y": 204.93438320209972,
+    "z": 1000,
+    "height": 515.69553805774274,
+    "width": 599.6850393700787,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "month_label"
+                }
+              },
+              "queryRef": "MonthlyMetrics.month_label",
+              "nativeQueryRef": "month_label",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "Total Revenue USD"
+                }
+              },
+              "queryRef": "MonthlyMetrics.Total Revenue USD",
+              "nativeQueryRef": "Total Revenue USD"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6d489be9ae382df458e1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "month_label"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7a3f7b8d7cf54c901c4d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "Total Revenue USD"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

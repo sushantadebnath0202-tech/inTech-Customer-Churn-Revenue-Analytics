@@ -1,0 +1,58 @@
+-- Measures for MonthlyMetrics table. These are also embedded in the PBIP semantic model.
+
+Total Revenue USD =
+SUM(MonthlyMetrics[total_revenue_usd])
+-- Format: \$#,##0.00
+
+Total Transaction Volume USD =
+SUM(MonthlyMetrics[transaction_volume_usd])
+-- Format: \$#,##0.00
+
+Total Transactions =
+SUM(MonthlyMetrics[transaction_count])
+-- Format: #,##0
+
+Monthly Active Users =
+CALCULATE(DISTINCTCOUNT(MonthlyMetrics[customer_id]), MonthlyMetrics[is_active] = 1)
+-- Format: #,##0
+
+Revenue per Active User =
+DIVIDE([Total Revenue USD], [Monthly Active Users], 0)
+-- Format: \$#,##0.00
+
+Previous Month Revenue USD =
+VAR ThisMonth = MAX(MonthlyMetrics[month_start])
+VAR PrevMonth = EDATE(ThisMonth, -1)
+RETURN CALCULATE([Total Revenue USD], REMOVEFILTERS(MonthlyMetrics[month_start]), MonthlyMetrics[month_start] = PrevMonth)
+-- Format: \$#,##0.00
+
+MoM Revenue Growth =
+DIVIDE([Total Revenue USD] - [Previous Month Revenue USD], [Previous Month Revenue USD], 0)
+-- Format: 0.0%
+
+Previous Month Active Base =
+VAR ThisMonth = MAX(MonthlyMetrics[month_start])
+VAR PrevMonth = EDATE(ThisMonth, -1)
+RETURN CALCULATE(DISTINCTCOUNT(MonthlyMetrics[customer_id]), REMOVEFILTERS(MonthlyMetrics[month_start]), MonthlyMetrics[month_start] = PrevMonth, MonthlyMetrics[is_active] = 1)
+-- Format: #,##0
+
+Churned Customers =
+VAR ThisMonth = MAX(MonthlyMetrics[month_start])
+VAR PrevMonth = EDATE(ThisMonth, -1)
+RETURN SUMX(VALUES(Customers[customer_id]),
+  VAR PriorActive = CALCULATE(MAX(MonthlyMetrics[is_active]), REMOVEFILTERS(MonthlyMetrics[month_start]), MonthlyMetrics[month_start] = PrevMonth)
+  VAR CurrentActive = CALCULATE(MAX(MonthlyMetrics[is_active]), REMOVEFILTERS(MonthlyMetrics[month_start]), MonthlyMetrics[month_start] = ThisMonth)
+  RETURN IF(PriorActive = 1 && CurrentActive = 0, 1, 0))
+-- Format: #,##0
+
+Churn Proxy Rate =
+DIVIDE([Churned Customers], [Previous Month Active Base], 0)
+-- Format: 0.0%
+
+Retention Rate =
+1 - [Churn Proxy Rate]
+-- Format: 0.0%
+
+Plan Revenue Rank =
+RANKX(ALL(Customers[plan]), [Total Revenue USD],, DESC, DENSE)
+-- Format: 0

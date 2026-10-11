@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "7c372be7b3316c7aff7e",
+  "position": {
+    "x": 0,
+    "y": 204.93438320209972,
+    "z": 1000,
+    "height": 515.69553805774274,
+    "width": 599.6850393700787,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "month_label"
+                }
+              },
+              "queryRef": "MonthlyMetrics.month_label",
+              "nativeQueryRef": "month_label",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "Monthly Active Users"
+                }
+              },
+              "queryRef": "MonthlyMetrics.Monthly Active Users",
+              "nativeQueryRef": "Monthly Active Users"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7dc6cd13fd4bd8628dc1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "month_label"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d3a1f38f97083b4aaa96",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "Monthly Active Users"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

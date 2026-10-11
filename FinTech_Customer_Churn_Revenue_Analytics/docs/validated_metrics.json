@@ -1,0 +1,11 @@
+{
+  "customers": 450,
+  "customer_months": 2458,
+  "tickets": 184,
+  "total_revenue_usd": 37509.0,
+  "september_mau": 287,
+  "august_active": 379,
+  "september_newly_inactive": 134,
+  "september_churn_proxy_pct": 35.36,
+  "september_retention_pct": 64.64
+}

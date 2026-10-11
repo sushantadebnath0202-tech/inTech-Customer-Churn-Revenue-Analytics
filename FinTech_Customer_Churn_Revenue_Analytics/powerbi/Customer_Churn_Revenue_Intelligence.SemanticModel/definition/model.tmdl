@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Customers","MonthlyMetrics","SupportTickets"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Customers
+ref table MonthlyMetrics
+ref table SupportTickets
+ref table DateTableTemplate_c6cb8a74-3c68-4f39-b5c4-cfe75913c5bc
+ref table LocalDateTable_2c80433a-022e-4188-85df-377c96ab12f3
+ref table LocalDateTable_3f33b6f5-211f-42da-9be9-d5411cd3e602
+ref table LocalDateTable_0d5cf33d-5b83-48e7-aba1-3d03c54e9d47
+

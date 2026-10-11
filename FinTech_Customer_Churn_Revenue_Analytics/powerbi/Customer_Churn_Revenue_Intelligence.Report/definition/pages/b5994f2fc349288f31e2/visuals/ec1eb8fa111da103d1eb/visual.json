@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "ec1eb8fa111da103d1eb",
+  "position": {
+    "x": 35,
+    "y": 35,
+    "z": 1000,
+    "height": 136,
+    "width": 278,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyMetrics"
+                    }
+                  },
+                  "Property": "Previous Month Active Base"
+                }
+              },
+              "queryRef": "MonthlyMetrics.Previous Month Active Base",
+              "nativeQueryRef": "Previous Month Active Base"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MonthlyMetrics"
+                  }
+                },
+                "Property": "Previous Month Active Base"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3d984796973a456f2b91",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MonthlyMetrics"
+              }
+            },
+            "Property": "Previous Month Active Base"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
